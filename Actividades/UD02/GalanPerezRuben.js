@@ -4,6 +4,30 @@ function actividad1() {
     document.getElementById("resultados").innerHTML = "Hola mundo"; //Introducir el texto en un parrafo con el id resultado
     alert("Hola mundo"); //Ventana emergente con el mensaje "Hola mundo"
 }
+//Actividad 2
+function actividad2() {
+    let cadena = "";
+    let numeros = [];
+
+    cadena = document.getElementById("entrada").ariaValueMax;
+    numeros = cadena.split(",");
+    if (numeros.some(mayor10)) {
+        document.getElementById("resultados").innerHTML = "Existe un valor mayor que 10";
+    } else {
+        document.getElementById("resultados").innerHTML = "No existe ningun valor mayor que 10";
+    }
+}
+//Actividad 3
+function actividad3() {
+    var input = document.createElement("input");
+    input.setAttribute('type', 'date');
+    var parent = document.getElementById("parentDiv");
+    parent.appendChild(input);
+
+    let fecha = document.getElementsByTagName("input").value;
+    console.log(fecha);
+
+}
 // Actividad 4
 function actividad4() {
    let sueldo = parseInt(prompt("Introduce tu sueldo: ")); //Pedir sueldo
@@ -44,16 +68,23 @@ function actividad6() {
     var pares = 2; //Creamos esta variable para establecer el límite inferior
     var cadena = ""; //Creamos esta variable para concatenar los resultados
 
-    do { //Creamos un bucle para que vaya recorriendo los números
+    if (numero < 2) {
+        document.getElementById("resultados").innerHTML = "Introduce un valor mayor o igual que 2";
+    } else if (numero > 2){
 
-        if (pares % 2 == 0) { //Comprueba que el resto de la división es 0
-            cadena = cadena + " " + pares; //Si se cumple se añade al resultado
-        } //Si no cumple con el requisito no hace nada
-        pares++; //Aumentamos el valor de la variable pares para que vaya subiendo de número en cada iteración del bucle hasta que llegue al límite que hemos introducido
+        do { //Creamos un bucle para que vaya recorriendo los números
 
-    } while (numero != pares); //Condición que se debe cumplir para que se realize una nueva iteración
-    
-    document.getElementById("resultados").innerHTML = cadena; //Mostrar el resultado
+            if (pares % 2 == 0) { //Comprueba que el resto de la división es 0
+                cadena = cadena + " " + pares; //Si se cumple se añade al resultado
+            } //Si no cumple con el requisito no hace nada
+            pares++; //Aumentamos el valor de la variable pares para que vaya subiendo de número en cada iteración del bucle hasta que llegue al límite que hemos introducido
+
+        } while (numero != pares); //Condición que se debe cumplir para que se realize una nueva iteración
+        
+        document.getElementById("resultados").innerHTML = cadena; //Mostrar el resultado
+    } else {
+        document.getElementById("resultados").innerHTML = 2;
+    }
 }
 //Actividad 7
 function actividad7() {
@@ -90,8 +121,6 @@ function actividad9() {
     var filas = parseInt(prompt("Introduce números de filas: ")); //Pedimos el número de filas
     var columnas = parseInt(prompt("Introduce números de columnas: ")); //Pedimos el número de columnas
 
-    var body = document.getElementsByTagName("body")[0];
-
     var tabla   = document.createElement("table"); //Creamos el elemento HTML tabla
     var tblBody = document.createElement("tbody"); //Creamos el elemento HTML del cuerpo de la tabla
   
@@ -110,8 +139,8 @@ function actividad9() {
     }
   
     tabla.appendChild(tblBody); //Introducimos el cuerpo de la tabla en la tabla
-
-    body.appendChild(tabla); //Introducimos la tabla en el body del documento HTML
+    tabla.setAttribute("border", "2");
+    document.getElementById("resultados").appendChild(tabla);
     tabla.setAttribute("border", "2"); //Le ponemos atributos a esa tabla
 }
 //Actividad 10
@@ -124,7 +153,8 @@ function actividad10() {
             esprimo = true; //Si se cumple el requisito le cambiamos el valor a la variable a true
         }
     }
-    if (esprimo) { //Comprobamos si el valor de la variable es true
+
+    if (esprimo || primo == 1) { //Comprobamos si el valor de la variable es true
         document.getElementById("resultados").innerHTML = "No es primo"; //Si se cumple el requisito muestra el siguiente mensaje
     } else { //Si el valor no es true
         document.getElementById("resultados").innerHTML = "Es primo"; //Muestra el siguiente mensaje
@@ -174,4 +204,5 @@ function actividad14() {
 }
 function borrar(){
     document.getElementById("resultados").innerHTML = " "; //Para borrar el contenido del parrafo donde se encuentran los resultados
+    document.getElementById("parentDiv").innerHTML = " "; //Para borrar el input de la fecha del ejercicio 2.2 Navidad
 }

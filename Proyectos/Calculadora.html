@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./Calculadora.css">
     <title>Calculadora</title>
 </head>
-<body>
+<body onload="init()">
     <div id="container">
 
-        <div id="resultado"></div>
+        <!-- <div id="resultado"></div> -->
         <table id="tabla">
             <tr>
-                <td colspan="5"><span id="resultado">Aqui va el resultado</span><hr></td>
+                <td colspan="5"><span id="resultado"></span><hr></td>
             </tr>
             <tr>
                 <td><button id="M" class="operador2">M</button></td>
@@ -42,7 +42,6 @@
                 <td><button id="2">2</button></td>
                 <td><button id="3">3</button></td>
                 <td><button id="resta" class="operador">-</button></td>
-                
             </tr>
             <tr>
                 <td><button id="!" class="operador2">!</button></td>
